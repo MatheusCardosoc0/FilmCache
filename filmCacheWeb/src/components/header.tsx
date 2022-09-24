@@ -1,4 +1,7 @@
 export function Header() {
+
+
+  
   return (
     <header className={`
     bg-gradient-to-r from-teal-700 to-black

@@ -1,11 +1,11 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Film } from "./pages/film";
-import { Main } from "./pages/main";
+import { Initial } from "./pages/Initial";
 
 export function Routers(){
   return(
     <Routes>
-      <Route path="/" element={<Main />}/>
+      <Route path="/" element={<Initial />}/>
       <Route path="/film/:id" element={<Film />}/>
       <Route path="*" element={<Navigate to={"/"} />}/>
     </Routes>
