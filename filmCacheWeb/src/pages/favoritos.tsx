@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Header } from "../components/header";
 import { DataFilmAtributes } from "./Initial";
 
@@ -19,6 +20,7 @@ export function Favoritos() {
 
     setFavoriteFilms(filterFilms)
     localStorage.setItem('@filmCache', JSON.stringify(filterFilms))
+    toast.success('Filme removido')
   }
 
 

@@ -1,6 +1,7 @@
 import { CaretLeft } from "phosphor-react"
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import { toast } from "react-toastify"
 import { Header } from "../components/header"
 import { api } from "../services/api"
 import { DataFilmAtributes } from "./Initial"
@@ -40,12 +41,12 @@ export const Film = () => {
     const notSaveRepeatFilms = filmeSalvo.some((filmeSalvo: { id: number }) => filmeSalvo.id === detailsFilm?.id)
 
     if(notSaveRepeatFilms){
-      alert('Filme já está na lista')
+      toast.warn('Filme já está na lista')
       return
     }
     filmeSalvo.push(detailsFilm)
     localStorage.setItem('@filmCache' , JSON.stringify(filmeSalvo))
-    alert('Salvo com sucesso!')
+    toast.success('Salvo com sucesso!')
   }
 
 
