@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { CardFilm } from "../components/CardFilm"
 import { Header } from "../components/header"
 import { api } from "../services/api"
 
@@ -52,8 +53,8 @@ export const Initial = () => {
           <div className="animate-spin h-[10rem] w-[10rem]  border-t-8 rounded-full border-teal-500" >
           </div>
           <h3 className="text-2xl text-teal-600 font-black">Carregando...</h3>
-        </div> 
-        
+        </div>
+
         :
 
         <main>
@@ -63,13 +64,11 @@ export const Initial = () => {
             <div className="md:flex-row flex flex-col flex-wrap gap-10 justify-center">
               {dataFilm.map(film => {
                 return (
-                  <article key={film.id} className="text-slate-300 flex flex-col bg-gradient-to-tl from-teal-500 to-black rounded-lg overflow-hidden border-l-4 border-l-blue-500 border-t-blue-600 border-t-4 md:border-t-8 md:border-l-8">
-                    <img className=" h-[15rem] md:w-[32rem] md:h-[20rem]  object-cover rounded-b-lg" src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`} />
-                    <div className="flex flex-col p-3 gap-4">
-                      <strong className="md:text-3xl">{film.title}</strong>
-                      <Link className="font-bold mx-auto py-1 px-3 rounded-lg bg-blue-600 md:text-2xl" to={`/film/${film.id}`} >Acessar</Link>
-                    </div>
-                  </article>
+                  <CardFilm
+                    id={film.id}
+                    poster_path={film.poster_path}
+                    title={film.title}
+                  />
                 )
               })}</div>
           </div>
